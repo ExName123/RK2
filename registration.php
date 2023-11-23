@@ -35,7 +35,7 @@
             <form action="scriptRegistration.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="form-additional" for="name">Логин</label>
-                    <input class="input-data" name="name" id="name" type="text" required placeholder="Логин">
+                    <input class="input-data" name="login" id="login" type="text" required placeholder="Логин">
                 </div>
 
                 <div class="form-group">
@@ -43,6 +43,10 @@
                     <input class="input-data" id="password" type="password" name="password" placeholder="Пароль">
                 </div>
 
+                <div class="form-group">
+                    <label class="form-additional" for="name">Имя</label>
+                    <input class="input-data" id="name" type="text" name="name" placeholder="Имя пользователя">
+                </div>
                 <input type="submit" value="Зарегистрироваться">
             </form>
         </div>

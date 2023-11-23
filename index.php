@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<header>
+    <header>
         <div>
             <img class="logo" src="images/polygon-matic-logo.png" alt="Логотип Магазина электроники">
             <h1 id="title">ElShopping</h1>
@@ -33,8 +33,11 @@
         </div>
     </header>
     <main>
+
         <div class="container">
-            <h1 class="titleFormMain">Добро пожаловать в наш магазин!</h1>
+            <h2 class="titleFormMain">Добро пожаловать в наш магазин!</h2>
+
+            <h1 id="titleShop">ElShopping</h1>
             <p>Мы предоставляем широкий ассортимент продукции высокого качества. Наш магазин специализируется на следующих категориях товаров:</p>
             <ul>
                 <li>Видеокарты</li>
@@ -43,6 +46,7 @@
             </ul>
             <p>Мы гарантируем быструю доставку и отличное обслуживание клиентов. Покупайте у нас и наслаждайтесь качественными товарами!</p>
         </div>
+
     </main>
     <footer>
         <div class="footerContent">

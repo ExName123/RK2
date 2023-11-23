@@ -7,13 +7,12 @@ body {
     background-color: gainsboro;
     margin-top: 95px;
 }
-
 header {
-    border-bottom: 2px solid bisque;
+    border-bottom: 2px solid antiquewhite;
     height: 90px;
     top: 0;
     display: block;
-    position: fixed;
+    position: absolute;
     background-color: #1F1445;
     width: 100%;
 }

@@ -1,3 +1,17 @@
+<?php
+
+require 'connectToDB.php';
+
+$itemId = $_GET['id'];
+
+$sql = "SELECT * FROM items WHERE id = $itemId";
+$result = $mysqli->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    $data = $result->fetch_assoc();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,37 +47,23 @@
         </div>
     </header>
     <main>
-        <div class="containerShop">
-            <?php
-            require 'connectToDB.php';
-            $result = $mysqli->query("SELECT id,title,description,price,image FROM items");
-
-            if ($result->num_rows > 0) {
-
-                echo '<table border="1" style="width: 100%; border-collapse: collapse;">';
-                echo '<tr style="background-color:#1F1445 ;"><th>Название</th><th>Описание</th><th>Цена</th><th>Изображение</th><th>Подробно</th></tr>';
-
-                while ($row = $result->fetch_assoc()) {
-                    echo '<tr>';
-                    echo '<td style="padding: 8px; text-align: left;">' . $row['title'] . '</td>';
-                    echo '<td style="padding: 8px; text-align: left;">' . $row['description'] . '</td>';
-                    echo '<td style="padding: 8px; text-align: left;">' . $row['price'] . '</td>';
-                    echo '<td style="padding: 8px;"><img src="' . $row['image'] . '" alt="' . $row['title'] . '" style="width:100px; height:100px; border-radius: 5px;"></td>';
-
-                    echo '<td style="padding: 8px;"><a style="color:white;" href="details.php?id=' . $row['id'] . '">Просмотреть</a></td>';
-
-                    echo '</tr>';
-                }
-
-                echo '</table>';
-            } else {
-                echo 'Нет данных в базе.';
-            }
-
-            // Закрытие соединения
-            $mysqli->close();
-            ?>
-
+        <div class="filters__img">
+            <img id="imgDetails" src="" />
+            <div class="container">
+                <form>
+                    <div class="details-container">
+                        <h2><?php echo $data['title']; ?></h2>
+                        <img class="imgDetails" src="<?php echo $data['image']; ?>" alt="<?php echo $data['title']; ?>">
+                        <p>Описание:<?php echo $data['description']; ?></p>
+                        <p>Цена: $<?php echo $data['price']; ?></p>
+                        <p>Количество: $<?php echo $data['count']; ?></p>
+                    </div>
+                    <div id="title"></div>
+                    <div id="count"></div>
+                    <div id="price"></div>
+                    <div id="description"></div>
+                </form>
+            </div>
         </div>
     </main>
     <footer>

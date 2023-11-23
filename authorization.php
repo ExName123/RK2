@@ -36,13 +36,13 @@
         <div class="container">
             <form action="scriptAuthorization.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label class="form-additional" for="name">Логин</label>
-                    <input class="input-data" name="name" id="name" type="text" required placeholder="Логин">
+                    <label class="form-additional" for="login">Логин</label>
+                    <input class="input-data" name="login" id="login" type="text" required placeholder="Логин">
                 </div>
 
                 <div class="form-group">
                     <label class="form-additional" for="password">Пароль</label>
-                    <input class="input-data" id="password" type="password" name="password" placeholder="Пароль">
+                    <input class="input-data" id="password" type="password" name="password" required placeholder="Пароль">
                 </div>
 
                 <input type="submit" value="Войти">

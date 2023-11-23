@@ -1,5 +1,9 @@
 <?php
-$username_ = $_GET['username'];
+session_start();
+
+if (isset($_SESSION['name'])) {
+    $username_ = $_SESSION['name'];
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +25,10 @@ $username_ = $_GET['username'];
         <div>
             <ul class="listHeader">
                 <li>
-                    <a  class="currentPage" href="shop.php">Магазин</a>
+                    <a href="shopClient.php">Магазин</a>
                 </li>
                 <li>
-                    <a href="">Связаться с нами</a>
+                    <a href="linkToUs.php">Связаться с нами</a>
                 </li>
                 <li class="authorization">
                     <a href="logout.php">Выход</a>
@@ -40,7 +44,7 @@ $username_ = $_GET['username'];
         </div>
     </header>
     <main>
-
+<h1 id="welcomeText">Добро пожаловать</h1>
     </main>
     <footer>
         <div class="footerContent">

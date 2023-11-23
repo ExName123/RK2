@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if (isset($_SESSION['name'])) {
+    $username_ = $_SESSION['name'];
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,39 +25,44 @@
         <div>
             <ul class="listHeader">
                 <li>
-                    <a href="index.php" class="currentPage">Главная</a>
+                    <a class="currentPage" href="shopClient.php">Магазин</a>
                 </li>
                 <li>
-                    <a href="shop.php">Магазин</a>
+                    <a href="linkToUs.php">Связаться с нами</a>
                 </li>
                 <li class="authorization">
-                    <a href="authorization.php">Авторизация</a>
+                    <a href="logout.php">Выход</a>
                 </li>
                 <li class="authorization">
-                    <a href="registration.php">Регистрация</a>
+                    <a>Пользователь:<?php echo $username_; ?></a>
+                </li>
+                <li class="authorization">
+                    <a>Моя корзина</a>
                 </li>
             </ul>
+
         </div>
     </header>
     <main>
-        <div class="container">
+        <div class="containerShop">
             <?php
             require 'connectToDB.php';
-            // Запрос к базе данных
-            $result = $mysqli->query("SELECT * FROM items");
+            $result = $mysqli->query("SELECT id,title,description,price,image FROM items");
 
-            // Проверка наличия данных
             if ($result->num_rows > 0) {
-                // Вывод данных в виде таблицы
-                echo '<table border="1">';
-                echo '<tr><th>Title</th><th>Description</th><th>Price</th><th>Image</th></tr>';
+
+                echo '<table border="1" style="width: 100%; border-collapse: collapse;">';
+                echo '<tr style="background-color:#1F1445 ;"><th>Название</th><th>Описание</th><th>Цена</th><th>Изображение</th><th>Подробно</th></tr>';
 
                 while ($row = $result->fetch_assoc()) {
                     echo '<tr>';
-                    echo '<td>' . $row['title'] . '</td>';
-                    echo '<td>' . $row['description'] . '</td>';
-                    echo '<td>' . $row['price'] . '</td>';
-                    echo '<td><img src="' . $row['image'] . '" alt="' . $row['title'] . '" style="width:100px;height:100px;"></td>';
+                    echo '<td style="padding: 8px; text-align: left;">' . $row['title'] . '</td>';
+                    echo '<td style="padding: 8px; text-align: left;">' . $row['description'] . '</td>';
+                    echo '<td style="padding: 8px; text-align: left;">' . $row['price'] . '</td>';
+                    echo '<td style="padding: 8px;"><img src="' . $row['image'] . '" alt="' . $row['title'] . '" style="width:100px; height:100px; border-radius: 5px;"></td>';
+
+                    echo '<td style="padding: 8px;"><a style="color:white;" href="detailsClient.php?id=' . $row['id'] . '">Просмотреть</a></td>';
+
                     echo '</tr>';
                 }
 
