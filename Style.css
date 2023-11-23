@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: gainsboro;
+    margin-top: 95px;
+}
+
+header {
+    border-bottom: 2px solid bisque;
+    height: 90px;
+    top: 0;
+    position: fixed;
+    background-color: #1F1445;
+    width: 100%;
+}
+header div {
+    height: 2.5em;
+    width: 100%;
+}
+
+.authorization {
+    
+    float: right;
+    margin-right: 1em;
+}
+#title,
+.listHeader {
+    color: #AA9ADC;
+}
+.logo {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+#title {
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.listHeader {
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline-block;
+}
+
+.listHeader li {
+    display: inline;
+    margin-left: 4em;
+}
+
+.listHeader li a {
+    transition: color 0.3s;
+    text-decoration: none;
+    color: bisque;
+}
+
+.listHeader li a:visited {
+    color: bisque;
+}
+
+.currentPage {
+    color: darkgray;
+    background-color: lightslategrey;
+    /* background-color: antiquewhite; */
+
+}
+
+.listHeader li a:hover {
+    color: #1F1445;
+    background-color: antiquewhite;
+}
+
+form {
+    color: bisque;
+    text-align: justify;
+}
+
+#title-form {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+}
+.form-additional {
+    margin-right: 1%;
+    font-weight: bold;
+}
+.container {
+    position: relative;
+    word-wrap: break-word;
+    background-color: #1F1445;
+    width: 60%;
+    margin: 20px auto;
+    color: bisque;
+    border: 2px solid lightslategrey;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.containerShop {
+    position: relative;
+    word-wrap: break-word;
+    background-color: #1F1445;
+    width: 40%;
+    margin: 20px auto;
+    color: bisque;
+    border: 2px solid lightslategrey;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.titleFormMain {
+    margin-bottom: 1em;
+    color: #fff; /* Изменение цвета заголовка */
+}
+
+.container p, .container li {
+    line-height: 1.6;
+}
+
+.container ul {
+    list-style-type: square; 
+    padding-left: 20px;
+}
+.container a:hover {
+    text-decoration: underline;
+}
+.filters__img img {
+    padding-bottom: 2em;
+    width: 600px;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; 
+}
+
+.form-group label,
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 2px;
+    margin-bottom: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    border-top: 2px solid bisque;
+    background-color: #1F1445;
+    position: fixed;
+    color: bisque;
+    padding: 0.3em;
+    bottom: 0;
+    width: 100%;
+}
+
+footer ul {
+    text-shadow: 1px;
+    padding-top: 0.3em;
+}
+
+footer ul li {
+    display: inline;
+}
+
+footer li a {
+    text-decoration: none;
+    margin-right: 2%;
+    transition: color 0.3s;
+    color: burlywood;
+}
+
+#timeLabel {
+    margin-right: 3%;
+    float: right;
+}
+
+footer li a:hover {
+    color: azure;
+}
+.elementsFooter{
+margin-left:6em;
+}
