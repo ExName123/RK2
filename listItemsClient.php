@@ -4,6 +4,7 @@ session_start();
 if (isset($_SESSION['name'])) {
     $username_ = $_SESSION['name'];
 } 
+$userId = $_SESSION['iduser'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,7 @@ if (isset($_SESSION['name'])) {
         <div>
             <ul class="listHeader">
                 <li>
-                    <a class="currentPage" href="shopClient.php">Магазин</a>
+                    <a href="shopClient.php">Магазин</a>
                 </li>
                 <li>
                     <a href="linkToUs.php">Связаться с нами</a>
@@ -36,8 +37,8 @@ if (isset($_SESSION['name'])) {
                 <li class="authorization">
                     <a>Пользователь:<?php echo $username_; ?></a>
                 </li>
-                <li>
-                    <a href="listItemsClient.php">Моя корзина</a>
+                <li class="authorization">
+                <a class="currentPage"  href="shopClient.php">Моя корзина</a>
                 </li>
             </ul>
 
@@ -47,12 +48,14 @@ if (isset($_SESSION['name'])) {
         <div class="containerShop">
             <?php
             require 'connectToDB.php';
-            $result = $mysqli->query("SELECT id,title,description,price,image FROM items");
 
+            $sql = "SELECT user.id AS userId, items.id AS itemId,title, description, price, image FROM items JOIN itemsClient ON items.id = itemsClient.idItem JOIN user ON user.id = itemsClient.idClient WHERE user.id = $userId";
+            $result = $mysqli->query($sql);
+            
             if ($result->num_rows > 0) {
 
                 echo '<table border="1" style="width: 100%; border-collapse: collapse;">';
-                echo '<tr style="background-color:#1F1445 ;"><th>Название</th><th>Описание</th><th>Цена</th><th>Изображение</th><th>Подробно</th></tr>';
+                echo '<tr style="background-color:#1F1445 ;"><th>Название</th><th>Описание</th><th>Цена</th><th>Изображение</th><th></th></tr>';
 
                 while ($row = $result->fetch_assoc()) {
                     echo '<tr>';
@@ -60,9 +63,7 @@ if (isset($_SESSION['name'])) {
                     echo '<td style="padding: 8px; text-align: left;">' . $row['description'] . '</td>';
                     echo '<td style="padding: 8px; text-align: left;">' . $row['price'] . '</td>';
                     echo '<td style="padding: 8px;"><img src="' . $row['image'] . '" alt="' . $row['title'] . '" style="width:100px; height:100px; border-radius: 5px;"></td>';
-
-                    echo '<td style="padding: 8px;"><a style="color:white;" href="detailsClient.php?id=' . $row['id'] . '">Просмотреть</a></td>';
-
+                    echo '<td style="padding: 8px;"><a id="addToCartBtn" href="deleteItemClient.php?idUser=' .  $row['userId'] . '&idItem=' .  $row['itemId'] . '">Удалить</a></td>';
                     echo '</tr>';
                 }
 

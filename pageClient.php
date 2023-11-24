@@ -36,8 +36,8 @@ if (isset($_SESSION['name'])) {
                 <li class="authorization">
                     <a>Пользователь:<?php echo $username_; ?></a>
                 </li>
-                <li class="authorization">
-                    <a>Моя корзина</a>
+                <li>
+                <a href="listItemsClient.php">Моя корзина</a>
                 </li>
             </ul>
 

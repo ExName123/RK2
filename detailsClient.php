@@ -10,7 +10,11 @@ $result = $mysqli->query($sql);
 if ($result && $result->num_rows > 0) {
     $data = $result->fetch_assoc();
 }
+session_start();
 
+if (isset($_SESSION['name'])) {
+    $username_ = $_SESSION['name'];
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,18 +36,22 @@ if ($result && $result->num_rows > 0) {
         <div>
             <ul class="listHeader">
                 <li>
-                    <a href="index.php">Главная</a>
+                    <a class="currentPage" href="shopClient.php">Магазин</a>
                 </li>
                 <li>
-                    <a class="currentPage" href="shop.php">Магазин</a>
+                    <a href="linkToUs.php">Связаться с нами</a>
                 </li>
                 <li class="authorization">
-                    <a href="authorization.php">Авторизация</a>
+                    <a href="logout.php">Выход</a>
                 </li>
                 <li class="authorization">
-                    <a href="registration.php">Регистрация</a>
+                    <a>Пользователь:<?php echo $username_; ?></a>
+                </li>
+                <li class="authorization">
+                <a href="listItemsClient.php">Моя корзина</a>
                 </li>
             </ul>
+
         </div>
     </header>
     <main>
@@ -57,6 +65,7 @@ if ($result && $result->num_rows > 0) {
                         <p>Описание:<?php echo $data['description']; ?></p>
                         <p>Цена: $<?php echo $data['price']; ?></p>
                         <p>Количество: $<?php echo $data['count']; ?></p>
+                        <a id="addToCartBtn" href="addToItemsClient.php?id=' . $_GET['id']  . '">Добавить в корзину</a>
                     </div>
                     <div id="title"></div>
                     <div id="count"></div>

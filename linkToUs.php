@@ -26,7 +26,7 @@ if (isset($_SESSION['name'])) {
         <div>
             <ul class="listHeader">
                 <li>
-                    <a href="shop.php">Магазин</a>
+                    <a href="shopClient.php">Магазин</a>
                 </li>
                 <li>
                     <a class="currentPage" href="linkToUs.php">Связаться с нами</a>
@@ -38,7 +38,7 @@ if (isset($_SESSION['name'])) {
                     <a>Пользователь:<?php echo $username_; ?></a>
                 </li>
                 <li class="authorization">
-                    <a>Моя корзина</a>
+                <a href="listItemsClient.php">Моя корзина</a>
                 </li>
             </ul>
         </div>

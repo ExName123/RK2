@@ -17,9 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $row = $result->fetch_assoc();
             $name = $row['name'];
+            $id = $row['id'];
 
             session_start();
+
             $_SESSION['name'] = $name;
+            $_SESSION['iduser'] = $id;
             header("Location: pageClient.php?name=" . urlencode($_SESSION['name']));
         } else {
             $error_message = "Неверный логин или пароль";
